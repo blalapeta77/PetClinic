@@ -1,0 +1,71 @@
+{
+    "_meta": {
+        "schema_version": "v1beta0-7.9.0"
+    },
+    "farm": {
+        "name": "TomcatFarm (clone #1)",
+        "description": "",
+        "project": {
+            "id": "2ba4b59e-be49-4dc0-a03d-3e2ab0d5d52e"
+        },
+        "timezone": "Asia\/Kolkata",
+        "launchOrder": "simultaneous",
+        "variables": []
+    },
+    "roles": [
+        {
+            "alias": "TomcatScalarized",
+            "role": {
+                "name": "TomcatScalarized"
+            },
+            "cloudPlatform": "ec2",
+            "cloudLocation": "us-east-1",
+            "instanceType": {
+                "id": "t2.micro"
+            },
+            "launchIndex": 0,
+            "advancedConfiguration": {
+                "disableAgentIptablesManagement": false,
+                "disableAgentNtpManagement": false,
+                "rebootAfterHostInit": false
+            },
+            "scaling": {
+                "enabled": true,
+                "maxInstances": 2,
+                "minInstances": 1,
+                "rules": []
+            },
+            "networking": {
+                "networks": [
+                    {
+                        "id": "vpc-912c4bf6"
+                    }
+                ],
+                "subnets": [
+                    {
+                        "id": "subnet-93e2f1ae"
+                    }
+                ]
+            },
+            "cloudFeatures": {
+                "type": "AwsCloudFeatures",
+                "ebsOptimized": false
+            },
+            "security": {
+                "securityGroups": [
+                    {
+                        "name": "default"
+                    },
+                    {
+                        "name": "scalr.410c49e8.ip-pool"
+                    }
+                ]
+            },
+            "variables": [],
+            "orchestration": {
+                "rules": []
+            },
+            "storage": []
+        }
+    ]
+}

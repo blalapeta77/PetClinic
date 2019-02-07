@@ -1,0 +1,126 @@
+{
+    "_meta": {
+        "schema_version": "v1beta0-7.9.0"
+    },
+    "farm": {
+        "name": "Hybrid ENV",
+        "description": "",
+        "project": {
+            "id": "2ba4b59e-be49-4dc0-a03d-3e2ab0d5d52e"
+        },
+        "timezone": "Asia\/Kolkata",
+        "launchOrder": "simultaneous",
+        "variables": []
+    },
+    "roles": [
+        {
+            "alias": "base-windows2012r2",
+            "role": {
+                "name": "base-windows2012r2"
+            },
+            "cloudPlatform": "ec2",
+            "cloudLocation": "us-east-1",
+            "instanceType": {
+                "id": "t2.micro"
+            },
+            "launchIndex": 0,
+            "advancedConfiguration": {
+                "disableAgentIptablesManagement": false,
+                "disableAgentNtpManagement": false,
+                "rebootAfterHostInit": false,
+                "instanceName": "TravelApp"
+            },
+            "scaling": {
+                "considerSuspendedServers": "running",
+                "enabled": true,
+                "maxInstances": 2,
+                "minInstances": 1,
+                "rules": [],
+                "scalingBehavior": "launch-terminate"
+            },
+            "networking": {
+                "networks": [
+                    {
+                        "id": "vpc-912c4bf6"
+                    }
+                ],
+                "subnets": [
+                    {
+                        "id": "subnet-93e2f1ae"
+                    }
+                ]
+            },
+            "cloudFeatures": {
+                "type": "AwsCloudFeatures",
+                "ebsOptimized": false
+            },
+            "security": {
+                "securityGroups": [
+                    {
+                        "name": "default"
+                    },
+                    {
+                        "name": "scalr.410c49e8.ip-pool"
+                    }
+                ]
+            },
+            "variables": [],
+            "orchestration": {
+                "rules": []
+            },
+            "storage": []
+        },
+        {
+            "alias": "Agent-Role",
+            "role": {
+                "name": "Agent-Role"
+            },
+            "cloudPlatform": "vmware",
+            "cloudLocation": "datacenter-2",
+            "instanceType": {
+                "id": "6b892c2a9699"
+            },
+            "launchIndex": 1,
+            "advancedConfiguration": {
+                "disableAgentIptablesManagement": false,
+                "disableAgentNtpManagement": false,
+                "rebootAfterHostInit": false,
+                "instanceName": "TravelDB"
+            },
+            "scaling": {
+                "considerSuspendedServers": "running",
+                "enabled": true,
+                "maxInstances": 2,
+                "minInstances": 1,
+                "rules": [],
+                "scalingBehavior": "launch-terminate"
+            },
+            "networking": {
+                "networks": [
+                    {
+                        "id": "network-14",
+                        "ipPool": {
+                            "id": "b022f0cb-4979-4358-b08e-ea6ea03eb9e5"
+                        }
+                    }
+                ]
+            },
+            "cloudFeatures": {
+                "type": "VmwareCloudFeatures",
+                "folder": "group-v3",
+                "placementStrategy": "manual",
+                "computeResource": "domain-c7",
+                "hosts": [
+                    "host-12"
+                ],
+                "dataStore": "datastore-23",
+                "resourcePool": "resgroup-8"
+            },
+            "variables": [],
+            "orchestration": {
+                "rules": []
+            },
+            "storage": []
+        }
+    ]
+}
